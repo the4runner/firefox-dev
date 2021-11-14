@@ -1,5 +1,5 @@
 # firefox-dev
-![OGImage](https://res.cloudinary.com/axicon/image/upload/v1636892733/GitHub/AnjaloHettiarachchi/firefox-dev/github-og-template-01_dldtdl.svg "the4runner/firefox-dev")
+![OGImage](https://res.cloudinary.com/axicon/image/upload/c_scale,w_800/v1636892734/GitHub/AnjaloHettiarachchi/firefox-dev/github-og-template-01_mbggye.png "the4runner/firefox-dev")
 
 [![Powered By: Copr](https://img.shields.io/badge/Powered_by-COPR-blue?style=flat-square)](https://copr.fedorainfracloud.org/)
 ![Arch: x86_64](https://img.shields.io/badge/Arch-x86__64-blue?style=flat-square)
