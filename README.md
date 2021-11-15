@@ -3,7 +3,6 @@
 
 [![Powered By: Copr](https://img.shields.io/badge/Powered_by-COPR-blue?style=flat-square)](https://copr.fedorainfracloud.org/)
 ![Arch: x86_64](https://img.shields.io/badge/Arch-x86__64-blue?style=flat-square)
-[![COPR Latest Release Version](https://img.shields.io/badge/release-95.0b6-brightgreen?style=flat-square)](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/builds/)
 [![Copr build status](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/package/firefox-dev/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/package/firefox-dev/)
 
 An unofficial RPM package of [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer) designed for [Fedora](https://getfedora.org).
