@@ -2,7 +2,7 @@
 %global             application_name firefox-dev
 
 Name:               firefox-dev
-Version:            95.0b9
+Version:            95.0b10
 Release:            1%{?dist}
 Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
@@ -39,7 +39,7 @@ Bugs related to Firefox Developer Edition should be reported directly to Mozilla
 <https://bugzilla.mozilla.org/>
 
 Bugs related to this package should be reported at this GitHub project:
-<https://github.com/AnjaloHettiarachchi/firefox-dev/issues/>
+<https://github.com/the4runner/firefox-dev/issues/>
 
 %prep
 %setup -q -n %{source_name}
@@ -65,6 +65,9 @@ gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 /opt/%{application_name}
 
 %changelog
+* Wed Nov 24 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 95.0b10
+- Minor version upgrade
+
 * Fri Nov 19 2021 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 95.0b9
 - Minor version upgrade
 
