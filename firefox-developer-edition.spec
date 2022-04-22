@@ -2,7 +2,7 @@
 %global             application_name firefox-dev
 
 Name:               firefox-dev
-Version:            100.0b8
+Version:            100.0b9
 Release:            1%{?dist}
 Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
@@ -65,6 +65,9 @@ gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 /opt/%{application_name}
 
 %changelog
+* Fri Apr 22 2022 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 100.0b9
+- Minor version upgrade
+
 * Fri Apr 22 2022 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 100.0b8
 - Minor version upgrade
 
