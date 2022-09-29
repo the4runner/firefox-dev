@@ -65,6 +65,8 @@ gtk-update-icon-cache -f -t /usr/share/icons/hicolor
 /opt/%{application_name}
 
 %changelog
+* Mon Sep 28 2022 NotPhantomX - 106.0b5
+- Minor version upgrade
 * Mon Sep 26 2022 Anjalo Hettiarachchi <anjalohettiarachchi@gmail.com> - 106.0b4
 - Minor version upgrade
 
