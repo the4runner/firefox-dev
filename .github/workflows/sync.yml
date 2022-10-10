@@ -28,7 +28,7 @@ jobs:
           node-version: 16
       - name: Configuration
         run: |
-          git config --local user-name "Github Action"
+          git config --local user.name "Github Action"
       - name: npm install, build and execute
         run: |
           cd automation
