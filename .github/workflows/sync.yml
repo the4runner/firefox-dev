@@ -34,6 +34,5 @@ jobs:
           cd automation
           npm install
           npm run start
-          git add *.spec
           git diff-index --quiet HEAD || git commit -m "sync"
           git push
