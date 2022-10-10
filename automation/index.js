@@ -1,4 +1,4 @@
-import axios from 'axios';
+import fetch from 'node-fetch';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
@@ -13,24 +13,18 @@ function whiteSpaces(amount) {
   return spaces.join('');
 }
 
-const response = await axios
-  .get(
-    'https://download.mozilla.org/en-US/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US',
-    {
-      headers: { 'X-Requested-With': 'XMLHttpRequest' },
-      maxRedirects: 0,
-    },
-  )
-  .then((res) => res.headers.get('location'))
-  .catch((err) => err.response.headers.get('location'));
-if (!response) throw new Error('Failed to fetch download URL');
+const downloadUrl = await fetch(
+  'https://download.mozilla.org/download/en-US/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US',
+  {
+    compress: true,
+    redirect: 'manual',
+  },
+).then((res) => res.headers.get('location'));
+if (!downloadUrl) throw new Error('Failed to fetch download URL');
 
-const version = path.parse(response).name.split('-')[1].slice(0, -4);
+const version = path.parse(downloadUrl).name.split('-')[1].slice(0, -4);
 
-// const download =
-//   'https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2';
-
-const contents = await fs.readFile('../firefox-developer-edition.spec', 'utf8');
+const specFile = await fs.readFile('../firefox-developer-edition.spec', 'utf8');
 
 /**
  *
@@ -48,5 +42,5 @@ function specUpdater(content, version) {
 
 await fs.writeFile(
   '../firefox-developer-edition.spec',
-  specUpdater(contents, version),
+  specUpdater(specFile, version),
 );
