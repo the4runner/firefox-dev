@@ -33,9 +33,6 @@ jobs:
           cd automation
           npm install
           npm run start
-          git add .
-          git diff-index --quiet HEAD || git commit -m "sync"
-          git push
       - name: execute version update
         run: |
           cd automation
