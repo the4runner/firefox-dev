@@ -2,8 +2,8 @@
 Encoding=UTF-8
 Version=1.0
 Name=Firefox Developer Edition
-Exec=/usr/bin/firefox-dev %u --name firefox-dev
-StartupWMClass=firefox-dev
+Exec=/usr/bin/firefox-dev %u --name firefox-aurora
+StartupWMClass=firefox-aurora
 Icon=firefox-developer-edition
 Terminal=false
 Type=Application
