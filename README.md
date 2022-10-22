@@ -1,8 +1,9 @@
 # firefox-dev
 ![OGImage](https://res.cloudinary.com/axicon/image/upload/c_scale,w_800/v1636892734/GitHub/AnjaloHettiarachchi/firefox-dev/github-og-template-01_mbggye.png "the4runner/firefox-dev")
 
-[![Powered By: Copr](https://img.shields.io/badge/Powered_by-COPR-blue?style=flat-square)](https://copr.fedorainfracloud.org/)
-![Arch: x86_64](https://img.shields.io/badge/Arch-x86__64-blue?style=flat-square)
+[![⚡️ Powered By: Copr](https://img.shields.io/badge/⚡️_Powered_by-COPR-blue?style=flat-square)](https://copr.fedorainfracloud.org/)
+![📦 Architecture: x86_64](https://img.shields.io/badge/📦_Architecture-x86__64-blue?style=flat-square)
+[![Latest Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=builds.latest.source_package.version&url=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fapi_3%2Fpackage%3Fownername%3Dthe4runner%26projectname%3Dfirefox-dev%26packagename%3Dfirefox-dev%26with_latest_build%3DTrue&style=flat-square&logo=firefoxbrowser&logoColor=blue)](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/package/firefox-dev/)
 [![Copr build status](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/package/firefox-dev/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/package/firefox-dev/)
 
 An unofficial RPM package of [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer) designed for [Fedora](https://getfedora.org).
