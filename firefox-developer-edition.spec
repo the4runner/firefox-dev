@@ -10,6 +10,7 @@ License:            MPLv1.1 or GPLv2+ or LGPLv2+
 URL:                https://www.mozilla.org/en-US/firefox/developer/
 Source0:            https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2
 Source1:            firefox-developer-edition.desktop
+Source2:            policies.json
 
 ExclusiveArch:      x86_64
 
@@ -54,6 +55,9 @@ Bugs related to this package should be reported at this GitHub project:
 %__ln_s /opt/%{application_name}/firefox %{buildroot}%{_bindir}/%{application_name}
 
 %__install -D -m 0644 %{SOURCE1} -t %{buildroot}%{_datadir}/applications
+
+%__install -D -m 0444 %{SOURCE2} -t %{buildroot}/opt/%{application_name}/distribution
+
 
 %post
 xdg-icon-resource install --novendor --size 128 /opt/firefox-dev/browser/chrome/icons/default/default128.png firefox-developer-edition
