@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   # Triggers the workflow daily
   schedule:
-  - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,28 +25,25 @@ jobs:
         uses: actions/setup-node@v3.5.0
         with:
           node-version: 16
-      - name: Configuration
+
+      - name: Run Git Configurations
         run: |
-          git config --local user.name "Github Action"
-      # - name: npm install, build and execute
-      #   run: |
-      #     cd automation
-      #     npm install
-      #     npm run start
-      #     git add .
-      #     git diff-index --quiet HEAD || git commit -m "sync"
-      #     git push
-      - name: execute version update
+          git config --local user.name "Github Action Runner"
+          git config --local user.email "github-action-runner@example.com"
+
+      - name: Execute version update
         run: |
           cd automation
           npm install
           npm run start
+
       - name: Push version to Github
         id: github-push
         run: |
           git add .
           git diff-index --quiet HEAD || git commit -m "sync"
           git push
+
       - name: Failed to push version
         if: ${{ failure() && steps.github-push.conclusion == 'failure' }}
         run: echo Failed to update version or version already at latest
