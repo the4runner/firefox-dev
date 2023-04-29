@@ -2,7 +2,7 @@
 %global             application_name firefox-dev
 
 Name:               firefox-dev
-Version:            113.0b8
+Version:            113.0b9
 Release:            1%{?dist}
 Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
