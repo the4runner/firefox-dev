@@ -1,5 +1,6 @@
 %global             source_name firefox
 %global             application_name firefox-dev
+%global             full_name firefox-developer-edition
 
 Name:               firefox-dev
 Version:            118.0b7
@@ -9,12 +10,11 @@ Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web b
 License:            MPLv1.1 or GPLv2+ or LGPLv2+
 URL:                https://www.mozilla.org/en-US/firefox/developer/
 Source0:            https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2
-Source1:            firefox-developer-edition.desktop
+Source1:            %{full_name}.desktop
 Source2:            policies.json
 
 ExclusiveArch:      x86_64
 
-Requires(post):     xdg-utils
 Requires(post):     gtk-update-icon-cache
 
 %description
@@ -48,7 +48,7 @@ Bugs related to this package should be reported at this GitHub project:
 %install
 %__rm -rf %{buildroot}
 
-%__install -d %{buildroot}{/opt/%{application_name},%{_bindir},%{_datadir}/applications}
+%__install -d %{buildroot}{/opt/%{application_name},%{_bindir},%{_datadir}/applications,%{_datadir}/icons/hicolor/128x128/apps,%{_datadir}/icons/hicolor/64x64/apps,%{_datadir}/icons/hicolor/48x48/apps,%{_datadir}/icons/hicolor/32x32/apps,%{_datadir}/icons/hicolor/16x16/apps}
 
 %__cp -r * %{buildroot}/opt/%{application_name}
 
@@ -58,13 +58,22 @@ Bugs related to this package should be reported at this GitHub project:
 
 %__install -D -m 0444 %{SOURCE2} -t %{buildroot}/opt/%{application_name}/distribution
 
+%__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default128.png %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
+%__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default64.png %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
+%__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default48.png %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/%{full_name}.png
+%__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default32.png %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/%{full_name}.png
+%__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default16.png %{buildroot}%{_datadir}/icons/hicolor/16x16/apps/%{full_name}.png
 
 %post
-xdg-icon-resource install --novendor --size 128 /opt/firefox-dev/browser/chrome/icons/default/default128.png firefox-developer-edition
-gtk-update-icon-cache -f -t /usr/share/icons/hicolor
+gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 
 %files
-%{_datadir}/applications/firefox-developer-edition.desktop
+%{_datadir}/applications/%{full_name}.desktop
+%{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
+%{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
+%{_datadir}/icons/hicolor/48x48/apps/%{full_name}.png
+%{_datadir}/icons/hicolor/32x32/apps/%{full_name}.png
+%{_datadir}/icons/hicolor/16x16/apps/%{full_name}.png
 %{_bindir}/%{application_name}
 /opt/%{application_name}
 
