@@ -1,6 +1,7 @@
 %global             source_name firefox
 %global             application_name firefox-dev
 %global             full_name firefox-developer-edition
+%global             internal_name firefox-aurora
 
 Name:               firefox-dev
 Version:            118.0b7
@@ -12,6 +13,7 @@ URL:                https://www.mozilla.org/en-US/firefox/developer/
 Source0:            https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2
 Source1:            %{full_name}.desktop
 Source2:            policies.json
+Source3:            %{internal_name}
 
 ExclusiveArch:      x86_64
 
@@ -52,11 +54,11 @@ Bugs related to this package should be reported at this GitHub project:
 
 %__cp -r * %{buildroot}/opt/%{application_name}
 
-%__ln_s /opt/%{application_name}/firefox %{buildroot}%{_bindir}/%{application_name}
-
 %__install -D -m 0644 %{SOURCE1} -t %{buildroot}%{_datadir}/applications
 
 %__install -D -m 0444 %{SOURCE2} -t %{buildroot}/opt/%{application_name}/distribution
+
+%__install -D -m 0755 %{SOURCE3} -t %{buildroot}%{_bindir}
 
 %__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default128.png %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
 %__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default64.png %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
@@ -74,7 +76,7 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 %{_datadir}/icons/hicolor/48x48/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/32x32/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/16x16/apps/%{full_name}.png
-%{_bindir}/%{application_name}
+%{_bindir}/%{internal_name}
 /opt/%{application_name}
 
 %changelog
