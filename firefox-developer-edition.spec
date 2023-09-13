@@ -11,7 +11,7 @@ Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web b
 License:            MPLv1.1 or GPLv2+ or LGPLv2+
 URL:                https://www.mozilla.org/en-US/firefox/developer/
 Source0:            https://download-installer.cdn.mozilla.net/pub/devedition/releases/%{version}/linux-x86_64/en-US/firefox-%{version}.tar.bz2
-Source1:            %{full_name}.desktop
+Source1:            %{internal_name}.desktop
 Source2:            policies.json
 Source3:            %{internal_name}
 
@@ -70,7 +70,7 @@ Bugs related to this package should be reported at this GitHub project:
 gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 
 %files
-%{_datadir}/applications/%{full_name}.desktop
+%{_datadir}/applications/%{internal_name}.desktop
 %{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/48x48/apps/%{full_name}.png
