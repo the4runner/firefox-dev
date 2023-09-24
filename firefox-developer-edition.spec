@@ -5,7 +5,7 @@
 
 Name:               firefox-dev
 Version:            118.0b9
-Release:            2%{?dist}
+Release:            3%{?dist}
 Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
 License:            MPLv1.1 or GPLv2+ or LGPLv2+
@@ -16,6 +16,9 @@ Source2:            policies.json
 Source3:            %{internal_name}
 
 ExclusiveArch:      x86_64
+
+Recommends:         (plasma-browser-integration if plasma-workspace)
+Recommends:         (gnome-browser-connector if gnome-shell)
 
 Requires(post):     gtk-update-icon-cache
 
@@ -80,5 +83,8 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /opt/%{application_name}
 
 %changelog
+* Sat Sep 23 2023 Namelesswonder <Namelesswonder@users.noreply.github.com> - 118.0b9-3
+- firefox-developer-edition.spec: Add weak dependency for each DE browser integration
+
 * Tue Sep 12 2023 Namelesswonder <Namelesswonder@users.noreply.github.com> - 118.0b7-2
 - firefox-developer-edition.spec: Trim changelog to resolve date warnings and bump release
