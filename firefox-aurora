@@ -1,6 +1,17 @@
 #!/usr/bin/bash
 
-[ -z "$MOZ_DISABLE_WAYLAND" ] && { [ "$XDG_CURRENT_DESKTOP" == "GNOME" ] && [ -n "$WAYLAND_DISPLAY" ] || [ "$XDG_SESSION_TYPE" == "wayland" ]; } && export MOZ_ENABLE_WAYLAND=1 && export MOZ_DBUS_REMOTE=1
+[ -z "$MOZ_DISABLE_WAYLAND" ] && { [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] && [ -n "$WAYLAND_DISPLAY" ] || [ "$XDG_SESSION_TYPE" = "wayland" ]; } && export MOZ_ENABLE_WAYLAND=1 && export MOZ_DBUS_REMOTE=1
+
+if [ "$XDG_CURRENT_DESKTOP" = "KDE" ] && [ ! -e "${HOME}/.mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json" ]; then
+    mkdir -p "${HOME}/.mozilla/native-messaging-hosts"
+    [ -r /usr/lib64/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json ] && ln -s /usr/lib64/mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json "${HOME}/.mozilla/native-messaging-hosts/org.kde.plasma.browser_integration.json"
+fi
+
+if [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] && { [ ! -e "${HOME}/.mozilla/native-messaging-hosts/org.gnome.browser_connector.json" ] || [ ! -e "${HOME}/.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json" ]; }; then
+    mkdir -p "${HOME}/.mozilla/native-messaging-hosts"
+    [ -r /usr/lib64/mozilla/native-messaging-hosts/org.gnome.browser_connector.json ] && ln -s /usr/lib64/mozilla/native-messaging-hosts/org.gnome.browser_connector.json "${HOME}/.mozilla/native-messaging-hosts/org.gnome.browser_connector.json"
+    [ -r /usr/lib64/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json ] && ln -s /usr/lib64/mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json "${HOME}/.mozilla/native-messaging-hosts/org.gnome.chrome_gnome_shell.json"
+fi
 
 export MOZ_APP_LAUNCHER="$0"
 
