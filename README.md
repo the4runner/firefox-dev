@@ -61,5 +61,5 @@ sudo dnf install firefox-dev
 4. Launch the application from the Application Menu or execute following command in terminal.
 
 ```Shell
-firefox-dev
+firefox-aurora
 ```
