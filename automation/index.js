@@ -38,7 +38,7 @@ function specUpdater(content, version) {
   if (versionIndex < 0) throw new Error('Failed to parse version line from spec file');
   const specVersion = lines[versionIndex].match(/\d.*$/);
   if (specVersion == null) throw new Error('Failed to parse version from spec file');
-  if (version !== specVersion) {
+  if (version != specVersion) {
     const releaseIndex = lines.findIndex((val) => val.startsWith('Release:'));
     if (releaseIndex < 0) throw new Error('Failed to parse release from spec file');
     lines[releaseIndex] = `Release:${whiteSpaces(12)}1%{?dist}`
