@@ -35,7 +35,14 @@ function specUpdater(content, version) {
   if (!content || !version) throw new Error('Invalid content or version');
   const lines = content.split('\n');
   const versionIndex = lines.findIndex((val) => val.startsWith('Version:'));
-  if (versionIndex < 0) throw new Error('Failed to parse current version');
+  if (versionIndex < 0) throw new Error('Failed to parse version line from spec file');
+  const specVersion = lines[versionIndex].match(/\d.*$/);
+  if (specVersion == null) throw new Error('Failed to parse version from spec file');
+  if (version != specVersion) {
+    const releaseIndex = lines.findIndex((val) => val.startsWith('Release:'));
+    if (releaseIndex < 0) throw new Error('Failed to parse release from spec file');
+    lines[releaseIndex] = `Release:${whiteSpaces(12)}1%{?dist}`
+  }
   lines[versionIndex] = `Version:${whiteSpaces(12)}${version}`;
   return lines.join('\n');
 }
