@@ -4,7 +4,7 @@
 %global             internal_name firefox-aurora
 
 Name:               firefox-dev
-Version:            127.0b3
+Version:            127.0b4
 Release:            1%{?dist}
 Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
