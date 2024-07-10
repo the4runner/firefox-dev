@@ -2,6 +2,7 @@
 %global             application_name firefox-dev
 %global             full_name firefox-developer-edition
 %global             internal_name firefox-aurora
+%global             debug_package %{nil}
 
 Name:               firefox-dev
 Version:            129.0b1
@@ -83,6 +84,9 @@ gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 /opt/%{application_name}
 
 %changelog
+* Wed Jul 10 2024 AnjaloHettiarachchi <24694418+AnjaloHettiarachchi@users.noreply.github.com> - 129.0b1
+- firefox-developer-edition.spec: Add global declaration to disable debuginfo
+
 * Sat Sep 23 2023 Namelesswonder <Namelesswonder@users.noreply.github.com> - 118.0b9-3
 - firefox-developer-edition.spec: Add weak dependency for each DE browser integration
 
