@@ -5,7 +5,7 @@
 %global             debug_package %{nil}
 
 Name:               firefox-dev
-Version:            136.0b2
+Version:            136.0b3
 Release:            1%{?dist}
 Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
