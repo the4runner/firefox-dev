@@ -5,7 +5,7 @@
 %global             debug_package %{nil}
 
 Name:               firefox-dev
-Version:            140.0b5
+Version:            140.0b6
 Release:            1%{?dist}
 Summary:            Firefox Developer Edition (formerly "Aurora") pre-beta Web browser
 
