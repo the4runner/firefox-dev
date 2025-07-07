@@ -21,6 +21,8 @@ ExclusiveArch:      x86_64
 Recommends:         (plasma-browser-integration if plasma-workspace)
 Recommends:         (gnome-browser-connector if gnome-shell)
 
+BuildRequires:      chrpath
+
 Requires(post):     gtk-update-icon-cache
 
 %description
@@ -57,6 +59,8 @@ Bugs related to this package should be reported at this GitHub project:
 %__install -d %{buildroot}{/opt/%{application_name},%{_bindir},%{_datadir}/applications,%{_datadir}/icons/hicolor/128x128/apps,%{_datadir}/icons/hicolor/64x64/apps,%{_datadir}/icons/hicolor/48x48/apps,%{_datadir}/icons/hicolor/32x32/apps,%{_datadir}/icons/hicolor/16x16/apps}
 
 %__cp -r * %{buildroot}/opt/%{application_name}
+#ERROR   0002: file '/opt/firefox-dev/libonnxruntime.so' contains an invalid runpath '$' in [$]
+chrpath --delete %{buildroot}/opt/%{application_name}/libonnxruntime.so || :
 
 %__install -D -m 0644 %{SOURCE1} -t %{buildroot}%{_datadir}/applications
 
@@ -71,7 +75,7 @@ Bugs related to this package should be reported at this GitHub project:
 %__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default16.png %{buildroot}%{_datadir}/icons/hicolor/16x16/apps/%{full_name}.png
 
 %post
-gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
+gtk-update-icon-cache -ftq %{_datadir}/icons/hicolor
 
 %files
 %{_datadir}/applications/%{internal_name}.desktop
