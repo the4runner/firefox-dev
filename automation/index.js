@@ -14,7 +14,7 @@ function whiteSpaces(amount) {
 }
 
 const downloadUrl = await fetch(
-  'https://download.mozilla.org/download/en-US/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US',
+  'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US',
   {
     compress: true,
     redirect: 'manual',
